@@ -1,0 +1,48 @@
+{
+    "name": "keinos/hello-world-tpl",
+    "description": "Overly cautious HelloWorld class. See the repo for details.",
+    "homepage": "https://github.com/KEINOS/TPL-PHP-HelloWorld",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "KEINOS",
+            "email": "github@keinos.com",
+            "homepage": "https://github.com/KEINOS/",
+            "role": "Maintainer"
+        },
+        {
+            "name": "contributors",
+            "homepage": "https://github.com/KEINOS/TPL-PHP-HelloWorld/graphs/contributors",
+            "role": "Contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/KEINOS/TPL-PHP-HelloWorld/issues",
+        "source": "https://github.com/KEINOS/TPL-PHP-HelloWorld"
+    },
+    "require": {
+        "php": "^8.0 || ^7.1",
+        "ext-mbstring": "*"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "KEINOS\\MyPackageName\\": "src/classes"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "scripts" :{
+        "test": [
+            "./tests/run-tests.sh"
+        ],
+        "test-init": [
+            "Composer\\Config::disableProcessTimeout",
+            "docker-compose --file docker-compose.dev.yml build initialize && docker-compose --file docker-compose.dev.yml run --rm initialize < /dev/tty"
+        ]
+    }
+}
